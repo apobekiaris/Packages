@@ -34,7 +34,9 @@ task RestoreNuggets {
         Get-ChildItem *.sln -Recurse|ForEach-Object{
             Set-Location $_.DirectoryName
             if ($packageSources){
-                & $nugetExe restore -source "https://api.nuget.org/v3/index.json;$packageSourcese" 
+                $sources= "https://api.nuget.org/v3/index.json;$packageSources"
+                $sources
+                & $nugetExe restore -source "https://api.nuget.org/v3/index.json;$sources"
             }
             else {
                 & $nugetExe restore
