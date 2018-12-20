@@ -13,6 +13,6 @@ steps:
   displayName: 'VsTest - testAssemblies'
   inputs:
     testAssemblyVer2: |
-     **\*.dll
+     .\bin\DevExpress.XAF.Agnostic.Specifications.dll
     uiTests: true
 

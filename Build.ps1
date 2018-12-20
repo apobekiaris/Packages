@@ -32,15 +32,16 @@ task UpdateProjects {
 task RestoreNuggets {
     Exec {
         Get-ChildItem *.sln -Recurse|ForEach-Object{
-            Set-Location $_.DirectoryName
+            Push-Location $_.DirectoryName
             if ($packageSources){
                 $sources= "https://api.nuget.org/v3/index.json;$packageSources"
                 $sources
-                & $nugetExe restore -source "https://api.nuget.org/v3/index.json;$sources"
+                & $nugetExe restore -source $sources
             }
             else {
                 & $nugetExe restore
             }
+            Pop-Location
         }
     }
 }
