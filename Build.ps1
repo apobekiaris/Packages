@@ -12,7 +12,6 @@ properties {
     $msbuild = $null
     $cleanBin = $null
     $nugetApiKey = $null
-    $DXNugetApiFeed = $null
     $build = $true
 }
 

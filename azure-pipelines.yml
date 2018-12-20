@@ -4,10 +4,9 @@ resources:
 - repo: self
 queue:
   name: Hosted VS2017
-#Your build pipeline references an undefined variable named ‘DXNugetApiFeed’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 steps:
 - powershell: |
-   .\go.ps1 -msbuild "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\msbuild.exe" -DXNugetApiFeed $(DXApiFeed)
+   .\go.ps1 -msbuild "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\msbuild.exe" -packageSources $(DXApiFeed)
   displayName: 'Build'
   failOnStderr: true
 - task: VSTest@2
